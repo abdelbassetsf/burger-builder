@@ -2,10 +2,10 @@ import React from 'react';
 import Logo from '../../logo/logo';
 import NavigationItems from '../navigation-items/navigation-items';
 import Backdrop from '../../UI/backdrop/backdrop';
-import Aux from '../../../hoc/Aux';
+import Aux from '../../../hoc/Aux/Aux';
 import classes from './side-drawer.module.css';
 
-const SideDrawer = (props) => {
+const SideDrawer = props => {
   let attachedClasses = [classes.SideDrawer, classes.Close];
   if (props.open) {
     attachedClasses = [classes.SideDrawer, classes.Open];

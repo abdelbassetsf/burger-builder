@@ -1,20 +1,20 @@
-import React from 'react';
-import BuildControl from './build-control/build-control';
-import classes from './build-controls.module.css';
+import React from "react";
+import BuildControl from "./build-control/build-control";
+import classes from "./build-controls.module.css";
 
 const controls = [
-  { label: 'Salad', type: 'salad' },
-  { label: 'Cheese', type: 'cheese' },
-  { label: 'Lamb', type: 'lamb' },
-  { label: 'Meat', type: 'meat' },
+  { label: "Salad", type: "salad" },
+  { label: "Cheese", type: "cheese" },
+  { label: "Lamb", type: "lamb" },
+  { label: "Meat", type: "meat" }
 ];
 
-const BuildControls = (props) => (
+const BuildControls = props => (
   <div className={classes.BuildControls}>
     <p>
       The Current Price: <strong>{props.price.toFixed(2)} $</strong>
     </p>
-    {controls.map((ctl) => (
+    {controls.map(ctl => (
       <BuildControl
         key={ctl.label}
         label={ctl.label}
