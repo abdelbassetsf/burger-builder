@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import classes from './contact-data.module.css';
 import Spinner from '../../../components/UI/spinner/spinner';
 import Button from '../../../components/UI/button/button';
@@ -194,4 +195,9 @@ class ContactDtata extends Component {
   }
 }
 
-export default withRouter(ContactDtata);
+const mapStateToProps = state => ({
+  ingredients: state.ingredients,
+  totalPrice: state.totalPrice
+});
+
+export default connect(mapStateToProps)(withRouter(ContactDtata));

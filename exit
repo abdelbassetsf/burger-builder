@@ -1,0 +1,33 @@
+
+for - perform a set of commands multiple times.
+
+   for VARNAME in [VALUES...]; COMMANDS...; end
+
+[1mDESCRIPTION[0m
+[1mfor[0m  is  a  loop  construct. It will perform the commands specified by [1mCOMMANDS[0m multiple times. On each iteration, the local
+variable specified by [1mVARNAME[0m is assigned a new value from [1mVALUES[0m. If [1mVALUES[0m is empty, [1mCOMMANDS[0m will not be executed at all.
+The  [1mVARNAME[0m is visible when the loop terminates and will contain the last value assigned to it. If [1mVARNAME[0m does not already
+exist it will be set in the local scope. For our purposes if the [1mfor[0m block is inside a function there must be a local  vari‐
+able  with  the  same name. If the [1mfor[0m block is not nested inside a function then global and universal variables of the same
+name will be used if they exist.
+
+[1mEXAMPLE[0m
+   for i in foo bar baz; echo $i; end
+
+   # would output:
+   foo
+   bar
+   baz
+
+[1mNOTES[0m
+The [1mVARNAME[0m was local to the for block in releases prior to 3.0.0. This means that if you did something like this:
+
+   for var in a b c
+       if break_from_loop
+           break
+       end
+   end
+   echo $var
+
+The last value assigned to [1mvar[0m when the loop terminated would not be available outside the loop. What [1mecho[0m [1m$var[0m would  write
+depended on what it was set to before the loop was run. Likely nothing.
