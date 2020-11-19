@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Order from '../../components/order/order';
 import axios from '../../axios/axios-orders';
 import WithErrorHandler from '../../hoc/wiith-error-handler/with-error-handler';
+
 class Orders extends Component {
   state = {
     orders: [],

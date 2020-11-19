@@ -5,31 +5,18 @@ import Burger from '../../components/burger/burger';
 import BuildControls from '../../components/burger/build-controls/build-controls';
 import Modal from '../../components/UI/modal/modal';
 import OrderSummary from '../../components/burger/order-summary/order-summary';
-import axios from '../../axios/axios-orders';
 import Spinner from '../../components/UI/spinner/spinner';
+import axios from '../../axios/axios-orders';
 import WithErrorHandS from '../../hoc/wiith-error-handler/with-error-handler';
-import * as actionTypes from '../../redux/actions';
+import * as burgerBuilderActions from '../../redux/actions/index';
 
 class BurgerBuilder extends Component {
   constructor() {
     super();
     this.state = {
-      purchasing: false,
-      loading: false,
-      error: false
+      purchasing: false
     };
   }
-
-  // componentDidMount() {
-  //   axios
-  //     .get('https://react-my-burger-c3cd3.firebaseio.com/ingredients.json')
-  //     .then(res => {
-  //       this.setState({ ingredients: res.data });
-  //     })
-  //     .catch(error => {
-  //       this.setState({ error: true });
-  //     });
-  // }
 
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
@@ -95,10 +82,6 @@ class BurgerBuilder extends Component {
       );
     }
 
-    if (this.state.loading) {
-      orderSummary = <Spinner />;
-    }
-
     return (
       <Aux>
         <Modal
@@ -120,15 +103,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onIngredientAdded: ingredientName =>
-    dispatch({
-      type: actionTypes.ADD_INGREDIENT,
-      ingredientName: ingredientName
-    }),
+    dispatch(burgerBuilderActions.addIngredient(ingredientName)),
   onIngredientRemoved: ingredientName =>
-    dispatch({
-      type: actionTypes.REMOVE_INGREDIENT,
-      ingredientName: ingredientName
-    })
+    dispatch(burgerBuilderActions.removeIngredient(ingredientName))
 });
 
 export default connect(
