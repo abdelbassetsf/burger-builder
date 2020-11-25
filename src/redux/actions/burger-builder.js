@@ -20,13 +20,15 @@ export const fetchIngredientsFailed = () => ({
   type: actionTypes.FETCH_INGREDIENTS_FAILED
 });
 
-export const initIngredients = () => dispatch => {
-  axios
-    .get('https://react-my-burger-c3cd3.firebaseio.com/ingredients.json')
-    .then(res => {
-      dispatch(setIngredients(res.data));
-    })
-    .catch(error => {
-      dispatch(fetchIngredientsFailed());
-    });
+export const initIngredients = () => {
+  return dispatch => {
+    axios
+      .get('https://react-my-burger-c3cd3.firebaseio.com/ingredients.json')
+      .then(res => {
+        dispatch(setIngredients(res.data));
+      })
+      .catch(error => {
+        dispatch(fetchIngredientsFailed());
+      });
+  };
 };
