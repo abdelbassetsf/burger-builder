@@ -28,3 +28,7 @@ export const purchaseBurger = orderData => {
       .catch(err => dispatch(purchaseBurgerFail(err)));
   };
 };
+
+export const purchaseInit = () => ({
+  type: actionTypes.PURCHASE_INIT
+});

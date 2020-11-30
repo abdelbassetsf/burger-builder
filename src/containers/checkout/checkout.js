@@ -36,7 +36,8 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = state => ({
-  ingredients: state.burgerBuilder.ingredients
+  ingredients: state.burgerBuilder.ingredients,
+  purchased: state.order.purchased
 });
 
 export default connect(mapStateToProps)(Checkout);
