@@ -108,7 +108,7 @@ class ContactDtata extends Component {
       price: this.props.price,
       orderData: formData
     };
-    this.props.onOrderBurder(order);
+    this.props.onOrderBurger(order);
   };
 
   checkValidity = (value, rules) => {
@@ -191,12 +191,12 @@ class ContactDtata extends Component {
 
 const mapStateToProps = state => ({
   ingredients: state.burgerBuilder.ingredients,
-  totalPrice: state.burgerBuilder.totalPrice,
+  price: state.burgerBuilder.totalPrice,
   loading: state.order.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  onOrderBurder: orderData => dispatch(orderActions.purchaseBurger(orderData))
+  onOrderBurger: orderData => dispatch(orderActions.purchaseBurger(orderData))
 });
 
 export default connect(

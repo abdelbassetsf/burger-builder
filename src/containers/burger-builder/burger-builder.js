@@ -113,7 +113,7 @@ const mapDispatchToProps = dispatch => ({
   onIngredientRemoved: ingredientName =>
     dispatch(actions.removeIngredient(ingredientName)),
   onInitIngredeints: () => dispatch(actions.initIngredients()),
-  onPurchaseInit: () => dispatch(actions.purchaseInit)
+  onPurchaseInit: () => dispatch(actions.purchaseInit())
 });
 
 export default connect(
